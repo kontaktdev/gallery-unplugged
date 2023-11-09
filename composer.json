@@ -1,0 +1,20 @@
+{
+    "name": "kontakt/gallery-unplugged",
+    "description": "PHP, no-database, API-driven and user-friendly galley to manage and showcase your photos",
+    "type": "project",
+    "require-dev": {
+        "monolog/monolog": "^3.5",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kontakt\\GalleryUnplugged\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Milos Vnucko",
+            "email": "kontaktdev@gmail.com"
+        }
+    ]
+}

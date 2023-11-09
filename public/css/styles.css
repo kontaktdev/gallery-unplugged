@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+/* Thumbnail Gallery */
+
+ul.thumbnail-gallery {
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+ul.thumbnail-gallery li {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 800px) {
+    ul.thumbnail-gallery li {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    ul.thumbnail-gallery li {
+        width: 100%;
+    }
+}
+
+.thumb {
+    border: 1px solid #ccc;
+}
+
+.thumb:hover {
+    border: 1px solid #777;
+}
+
+.thumb a img {
+}
+
+.thumb img {
+    width: 100%;
+    height: auto;
+}
+
+.thumb .desc {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Grid Gallery */
+
+.grid-gallery {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+.grid-gallery .column {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+.grid-gallery .column a img {
+
+}
+
+.grid-gallery .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .grid-gallery .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .grid-gallery .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Utils */
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Loader */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent background to dim the content */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    border: 20px solid #f3f3f3;
+    border-top: 20px solid #2d6a93;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
