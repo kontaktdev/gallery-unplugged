@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ded636b1-bcaa-4479-8fe0-55432687c964" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/html/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GalleryUnplugged.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/GalleryUnpluggedTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +98,7 @@
       <updated>1699209887461</updated>
       <workItem from="1699209898375" duration="199000" />
       <workItem from="1699210244521" duration="15119000" />
-      <workItem from="1699270301149" duration="22437000" />
+      <workItem from="1699270301149" duration="22522000" />
     </task>
     <servers />
   </component>

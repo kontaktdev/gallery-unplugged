@@ -18,6 +18,8 @@ composer.lock
 # Cache folder
 /cache/
 
+/.idea/*
+
 /gallery/
 /public/
 
