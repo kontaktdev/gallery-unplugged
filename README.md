@@ -77,6 +77,7 @@ For the caching, a new **cache** folder will be created at root level with the c
 ## Examples
 Navigate to your script e.g: **localhost:8080**
 
+Response Example (directories structure):
 ```json
 {
   "status": "success",
@@ -94,6 +95,7 @@ Navigate to your script e.g: **localhost:8080**
 
 Navigate to your script e.g: **localhost:8000/?path=hiking_day_1**
 
+Response Example (images structure):
 ```json
 {
   "status": "success",
@@ -115,8 +117,6 @@ Navigate to your script e.g: **localhost:8000/?path=hiking_day_1**
   "code": 200
 }
 ```
-
-Alternatively, if you are using other Routing method you can pass your route to the **get** method accordingly 
 
 ## Contributing
 Contributions are welcome! Fork the repository, make your changes, and submit a pull request.
