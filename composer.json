@@ -3,7 +3,6 @@
     "description": "PHP, no-database, API-driven and user-friendly galley to manage and showcase your photos",
     "type": "project",
     "require-dev": {
-        "monolog/monolog": "^3.5",
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {

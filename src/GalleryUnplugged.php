@@ -73,13 +73,20 @@ class GalleryUnplugged
      * @param string $folderPath
      * @return string
      */
-    public function get(string $folderPath = ''): void
+    public function get(string $folderPath = '', bool $with_header = true):?string
     {
         $data = $this->getData($folderPath);
-        Api::response(
+        $response = Api::response(
             Api::API_STATUS_SUCCESS,
             $data,
         );
+
+        if ($with_header) {
+            header('Content-Type: application/json');
+            echo json_encode($response);
+        } else {
+            return json_encode($response);
+        }
     }
 
     /**
@@ -88,7 +95,7 @@ class GalleryUnplugged
      * @param string $folderPath
      * @throws Exception
      */
-    public function getWithCache(string $folderPath = ''): void
+    public function getWithCache(string $folderPath = '', bool $with_header = true):?string
     {
         // Create Cache folder if it doesn't exist
         if (!is_dir(self::CACHE_FOLDER)) {
@@ -109,10 +116,17 @@ class GalleryUnplugged
             file_put_contents($cacheFilePath, json_encode($data));
         }
 
-        Api::response(
+        $response = Api::response(
             Api::API_STATUS_SUCCESS,
             $data,
         );
+
+        if ($with_header) {
+            header('Content-Type: application/json');
+            echo json_encode($response);
+        } else {
+            return json_encode($response);
+        }
     }
 
     /**
@@ -354,12 +368,9 @@ class Api
      * @param string $message
      * @param int $code
      */
-    public static function response(string $status, array $data = [], string $message = '', int $code = 200): void
+    public static function response(string $status, array $data = [], string $message = '', int $code = 200):self
     {
-        $response = new Api($status, $data, $message, $code);
-
-        header('Content-Type: application/json');
-        echo json_encode($response);
+        return new Api($status, $data, $message, $code);
     }
 }
 
