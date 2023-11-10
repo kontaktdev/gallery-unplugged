@@ -14,7 +14,6 @@ making it an ideal choice for projects where a database is NOT required.
     - [Get Gallery with Cache](#get-gallery-with-cache)
 - [Examples](#examples)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -54,6 +53,7 @@ require_once('GalleryUnplugged.php');
 $galleryUnplugged = new GalleryUnplugged();
 $galleryUnplugged->generate();
 ```
+For the thumbnails, a new **thumbs** folder will be created at root level with the generated thumbnails.
 
 ### Get Gallery Images Without Caching
 
@@ -72,6 +72,7 @@ $galleryUnplugged = new GalleryUnplugged();
 $requestPath = isset($_GET['path']) ? $_GET['path'] : '';
 $galleryUnplugged->getWithCache($requestPath);
 ```
+For the caching, a new **cache** folder will be created at root level with the cached content.
 
 ## Examples
 Navigate to your script e.g: **localhost:8080**
@@ -91,7 +92,7 @@ Navigate to your script e.g: **localhost:8080**
 }
 ```
 
-Navigate to your script e.g: **http://localhost:8000/?path=hiking_day_1**
+Navigate to your script e.g: **localhost:8000/?path=hiking_day_1**
 
 ```bash
 {
@@ -114,6 +115,8 @@ Navigate to your script e.g: **http://localhost:8000/?path=hiking_day_1**
   "code": 200
 }
 ```
+
+Alternatively, if you are using other Routing method you can pass your route to the **get** method accordingly 
 
 ## Contributing
 Contributions are welcome! Fork the repository, make your changes, and submit a pull request.
