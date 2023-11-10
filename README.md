@@ -44,12 +44,12 @@ Create **gallery** folder at root level and copy few pictures over.
 
 Use the **generate** method to generate image gallery thumbnails.
 
-```bash
+```php
 // if not using Composer
 require_once('GalleryUnplugged.php');
 ```
 
-```bash
+```php
 $galleryUnplugged = new GalleryUnplugged();
 $galleryUnplugged->generate();
 ```
@@ -57,7 +57,7 @@ For the thumbnails, a new **thumbs** folder will be created at root level with t
 
 ### Get Gallery Images Without Caching
 
-```bash
+```php
 $galleryUnplugged = new GalleryUnplugged();
 
 $requestPath = isset($_GET['path']) ? $_GET['path'] : '';
@@ -66,7 +66,7 @@ $galleryUnplugged->get($requestPath);
 
 ### Get Gallery Images with Cached response
 
-```bash
+```php
 $galleryUnplugged = new GalleryUnplugged();
 
 $requestPath = isset($_GET['path']) ? $_GET['path'] : '';
@@ -77,7 +77,7 @@ For the caching, a new **cache** folder will be created at root level with the c
 ## Examples
 Navigate to your script e.g: **localhost:8080**
 
-```bash
+```json
 {
   "status": "success",
   "data": [
@@ -94,7 +94,7 @@ Navigate to your script e.g: **localhost:8080**
 
 Navigate to your script e.g: **localhost:8000/?path=hiking_day_1**
 
-```bash
+```json
 {
   "status": "success",
   "data": [
