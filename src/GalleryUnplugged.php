@@ -76,17 +76,19 @@ class GalleryUnplugged
     public function get(string $folderPath = '', bool $with_header = true):?string
     {
         $data = $this->getData($folderPath);
-        $response = Api::response(
-            Api::API_STATUS_SUCCESS,
-            $data,
-        );
-
-        if ($with_header) {
-            header('Content-Type: application/json');
-            echo json_encode($response);
+        if ($data == null) {
+            $response = Api::response(Api::API_STATUS_ERROR, [], 'Not Found', 404);
         } else {
+            $response = Api::response(Api::API_STATUS_SUCCESS, $data, '', 200);
+        }
+
+        if (!$with_header) {
             return json_encode($response);
         }
+
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        return null;
     }
 
     /**
@@ -116,17 +118,19 @@ class GalleryUnplugged
             file_put_contents($cacheFilePath, json_encode($data));
         }
 
-        $response = Api::response(
-            Api::API_STATUS_SUCCESS,
-            $data,
-        );
-
-        if ($with_header) {
-            header('Content-Type: application/json');
-            echo json_encode($response);
+        if ($data == null) {
+            $response = Api::response(Api::API_STATUS_ERROR, [], 'Not Found', 404);
         } else {
+            $response = Api::response(Api::API_STATUS_SUCCESS, $data, '', 200);
+        }
+
+        if (!$with_header) {
             return json_encode($response);
         }
+
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        return null;
     }
 
     /**
@@ -135,15 +139,21 @@ class GalleryUnplugged
      * @param string $folderPath
      * @return array
      */
-    private function getData(string $folderPath = ''): array
+    private function getData(string $folderPath = ''): ?array
     {
-        $folderPath = (empty($folderPath))
-            ? $this->imagePath
-            : $this->imagePath . '/' . $folderPath;
+        $folderPath = $this->imagePath . '/' . $folderPath;
 
+        // Simple anti-traversal attack check
+        if (
+            realpath($folderPath) === false
+            || strpos(realpath($folderPath), realpath($this->imagePath)) !== 0
+        ) {
+            return null;
+        }
+        
         $data = is_dir($folderPath)
             ? $this->scanWithResponse($folderPath)
-            : [];
+            : null; // wrong path!
 
         return $data;
     }

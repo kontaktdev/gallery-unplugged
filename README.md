@@ -1,4 +1,4 @@
-# Gallery Unplugged : PHP API-Driven Gallery
+# Gallery Unplugged : PHP API-Driven Gallery Backend
 
 Welcome to the Gallery Unplugged, a lightweight and efficient solution for managing image 
 galleries without the need for a database. This gallery is designed to be simple, fast, and easy to use, 
